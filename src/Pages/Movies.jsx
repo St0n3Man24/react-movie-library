@@ -3,9 +3,11 @@ import Movie_List from '../Components/Movie_List/Movie_List';
 
 const Movies = () => {
   return (
-    <div>
-      <Movie_List />
-    </div>
+    <>
+      <div>
+        <Movie_List />
+      </div>
+    </>
   )
 }
 
