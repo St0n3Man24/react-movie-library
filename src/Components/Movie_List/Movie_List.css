@@ -47,11 +47,25 @@ h3 {
 
 .movies__header {
   display: flex;
+  flex-direction: column;
+}
+
+.movies__body {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 80px;
   margin-bottom: 24px;
+}
+
+.movie__search--input {
+  width: 100%;
+  border-radius: 100px;
+  border: 2px solid black;
+  padding: 8px 8px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  background-color: rgba(2, 247, 255, 0.164);
 }
 
 .section__title {
