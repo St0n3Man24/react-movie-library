@@ -46,6 +46,16 @@ header {
   align-items: center;
 }
 
+.movie__search--input {
+  width: 100%;
+  border-radius: 100px;
+  border: 2px solid black;
+  padding: 8px 8px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  background-color: rgba(2, 247, 255, 0.164);
+}
+
 .movie-card__container {
   width: 100%;
   display: flex;

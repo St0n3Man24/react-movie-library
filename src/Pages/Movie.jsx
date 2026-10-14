@@ -1,10 +1,10 @@
 import React from 'react';
-import Movie_Search from '../Components/Movie_Search/Movie_Search';
+import Movie_List from '../Components/Movie_List/Movie_List';
 
 const Movie = () => {
   return (
     <div>
-      <Movie_Search />
+      <Movie_List />
     </div>
   )
 }
