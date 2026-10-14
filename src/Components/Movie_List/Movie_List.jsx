@@ -30,27 +30,16 @@ const Movie_List = () => {
       <div className="movies__container">
           <div className="row movie__row">
             <div className="movies__header">
-              <div className="movies__search">
-                <h2 className="movies__search--title">
-                  Find Your Favorite <span className="blue">Movies</span> Here!
-                </h2>
-                <input
-                  type="text"
-                  className="movie__search--input"
-                  placeholder="Search by Keyword"
-                  // onChange={(event) =>onSearchChange(event)}
-                />
+              <div className="movies__body">
+                <h3 className="section__title">Movie Results:</h3>
+                <select className="movies__sort" id="filter" onChange="filterMovies(event)">
+                  <option value="" disabled selected>Sort</option>
+                  <option value="ALPHA_A_Z">Alphabetical A to Z</option>
+                  <option value="ALPHA_Z_A">Alphabetical Z to A</option>
+                  <option value="NEW_OLD">Newest to Oldest</option>
+                  <option value="OLD_NEW">Oldest to Newest</option>
+                </select>
               </div>
-            <div className="movies__body">
-              <h3 className="section__title">Movie Results:</h3>
-              <select className="movies__sort" id="filter" onChange="filterMovies(event)">
-                <option value="" disabled selected>Sort</option>
-                <option value="ALPHA_A_Z">Alphabetical A to Z</option>
-                <option value="ALPHA_Z_A">Alphabetical Z to A</option>
-                <option value="NEW_OLD">Newest to Oldest</option>
-                <option value="OLD_NEW">Oldest to Newest</option>
-              </select>
-            </div>
             </div>
             <div className="movies movies__loading">
               <i className="fas fa-spinner movies__loading--spinner"></i>

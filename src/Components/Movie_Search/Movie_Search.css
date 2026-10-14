@@ -38,6 +38,7 @@ header {
 
 .header__container {
   width: 100%;
+  height: 100vh;
   padding: 24px 0;
   box-sizing: border-box;
   display: flex;
@@ -72,6 +73,16 @@ header {
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6);
 }
 
+.movie-card__img--skeleton {
+  width: 100%;
+  max-width: 250px;
+  height: 325px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background-color: lightgrey;
+}
+
 .movie-card__img {
   display: block;
   width: 100%;
@@ -92,12 +103,27 @@ header {
   width: 100%;
 }
 
+.movie-card__title--skeleton {
+  width: 100%;
+  max-width: 95px;
+  height: 24px;
+  background-color: lightgrey;
+  margin-bottom: 6px;
+}
+
 .movie-card__year {
   width: 100%;
   margin-top: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.movie-card__year--skeleton {
+  width: 100%;
+  max-width: 95px;
+  height: 20px;
+  background-color: lightgrey;
 }
 
 /* RESPONSIVENESS */
