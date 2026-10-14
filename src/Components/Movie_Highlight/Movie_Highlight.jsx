@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Movie_List.css';
+import './Movie_Highlight.css';
 import axios from 'axios';
 
 // http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726//
@@ -17,7 +17,7 @@ import axios from 'axios';
 // tt0232500 (Fast & Furious)
 // tt1201607 (Harry Potter)
 
-const Movie_List = () => {
+const Movie_Highlight = () => {
   const [movies, setMovies] = useState([]);
 
   async function showMovies() {
@@ -181,4 +181,4 @@ const Movie_List = () => {
   )
 }
 
-export default Movie_List;
+export default Movie_Highlight;

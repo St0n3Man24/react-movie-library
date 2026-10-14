@@ -60,21 +60,19 @@ const Movie_Search = () => {
             </div>
           ) : (
             <>
-              {movies.map((movie) => (
-                <div className="movie-card">
-                  <figure className="movie-card__img--wrapper">
-                    <img
-                      className="movie-card__img"
-                      src={Movie_Img}
-                      alt=""
-                    />
-                  </figure>
-                  <div className="movie-card__description">
-                    <h3 className="movie-card__title">Movie Title</h3>
-                    <h4 className="movie-card__year">Movie Year</h4>
-                  </div>
+              <div className="movie-card">
+                <figure className="movie-card__img--wrapper">
+                  <img
+                    className="movie-card__img"
+                    src={Movie_Img}
+                    alt=""
+                  />
+                </figure>
+                <div className="movie-card__description">
+                  <h3 className="movie-card__title">Movie Title</h3>
+                  <h4 className="movie-card__year">Movie Year</h4>
                 </div>
-              ))}
+              </div>
             </>
           )}
         </div>
