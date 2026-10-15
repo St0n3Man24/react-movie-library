@@ -1,11 +1,11 @@
 import React from 'react';
-import Movie_Highlight from '../Components/Movie_Highlight/Movie_Highlight';
+import "../index.css";
 
 const Movies = () => {
   return (
     <>
       <div>
-        <Movie_Highlight />
+        
       </div>
     </>
   )
