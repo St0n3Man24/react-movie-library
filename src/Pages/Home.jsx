@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <div>
-      <nav>
+      <div id="nav">
         <div className="nav__container">
             <a href="/">
               <img className="nav__logo" src={Movie_Logo} alt="" />
@@ -60,50 +60,54 @@ const Home = () => {
             </li>
           </ul>
         </div>
-      </nav>
-
-      <header className="header__container">
-        <h2 className="movies__search--title">
-          Find Your Favorite <span className="blue">Movies</span> Here!
-        </h2>
-        <div className="movies__search">
-          <input
-            type="text"
-            className="movie__search--input"
-            placeholder="Search by Keyword"
-            onChange={(e) => setKeyword(e.target.value)}
-          />
-          <button className="movie__search--btn">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </button>
-        </div>
-        <div className="header__img">
-          <img src={Movie_Time} alt="" />
-        </div>
-      </header>
-
-      <footer className="footer__container">
-        <div className="footer__row">
-          <figure className="footer__logo">
-            <img src="./assets/movie-time_logo.jpg" className="footer__logo--img" alt="" />
-          </figure>
-          <div className="footer__links">
-              <div
-                className="footer__link"
-                onClick={() => navigate('/')}>
-                  Home
-              </div>
-              <div 
-                className="footer__link"
-                onClick={() => navigate('/search')}>
-                  Movies
-              </div>
+      </div>
+      
+      <div id="header">
+        <div className="header__container">
+          <h2 className="movies__search--title">
+            Find Your Favorite <span className="blue">Movies</span> Here!
+          </h2>
+          <div className="movies__search">
+            <input
+              type="text"
+              className="movie__search--input"
+              placeholder="Search by Keyword"
+              onChange={(e) => setKeyword(e.target.value)}
+            />
+            <button className="movie__search--btn">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
           </div>
-          <div className="footer__copyright">
-            Copyright &copy; 2026 Movie Library
+          <div className="header__img">
+            <img src={Movie_Time} alt="" />
           </div>
         </div>
-      </footer>
+      </div>
+
+      <div id="footer">
+        <div className="footer__container">
+          <div className="footer__row">
+            <figure className="footer__logo">
+              <img src="./assets/movie-time_logo.jpg" className="footer__logo--img" alt="" />
+            </figure>
+            <div className="footer__links">
+                <div
+                  className="footer__link"
+                  onClick={() => navigate('/')}>
+                    Home
+                </div>
+                <div 
+                  className="footer__link"
+                  onClick={() => navigate('/search')}>
+                    Movies
+                </div>
+            </div>
+            <div className="footer__copyright">
+              Copyright &copy; 2026 Movie Library
+            </div>
+          </div>
+        </div>
+      </div>  
     </div>
   )
 }

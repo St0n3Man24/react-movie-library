@@ -29,7 +29,7 @@ const Search = () => {
   const [keyword, setKeyword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function showMovies(keyword) {
+  async function showMovies(searchKeyword) {
     const { data } = await axios.get(`http://www.omdbapi.com/?apikey=1c6a2726&s=${keyword}`);
     setLoading(true);
 
@@ -39,12 +39,12 @@ const Search = () => {
   }
 
   useEffect(() => {
-    showMovies();
+    showMovies(keyword);
   }, [keyword]);
 
   return (
     <div>
-      <nav>
+      <div id="nav">
         <div className="nav__container">
             <a href="/">
               <img className="nav__logo" src={Movie_Logo} alt="" />
@@ -66,9 +66,9 @@ const Search = () => {
             </li>
           </ul>
         </div>
-      </nav>
+      </div>
 
-      <movies>
+      <div id="movies">
         <div className="movies__container">
           <div className="row movie__row">
             <div className="movies__header">
@@ -124,30 +124,32 @@ const Search = () => {
             </div>
           </div>
         </div>
-      </movies>
+      </div>
 
-      <footer className="footer__container">
-        <div className="footer__row">
-          <figure className="footer__logo">
-            <img src="./assets/movie-time_logo.jpg" className="footer__logo--img" alt="" />
-          </figure>
-          <div className="footer__links">
-            <div
-              className="footer__link"
-              onClick={() => navigate('/')}>
-                Home
+      <div id="footer">
+        <footer className="footer__container">
+          <div className="footer__row">
+            <figure className="footer__logo">
+              <img src="./assets/movie-time_logo.jpg" className="footer__logo--img" alt="" />
+            </figure>
+            <div className="footer__links">
+              <div
+                className="footer__link"
+                onClick={() => navigate('/')}>
+                  Home
+              </div>
+              <div
+                className="footer__link"
+                onClick={() => navigate('/search')}>
+                Movies
+              </div>
             </div>
-            <div
-              className="footer__link"
-              onClick={() => navigate('/search')}>
-              Movies
+            <div className="footer__copyright">
+              Copyright &copy; 2026 Movie Library
             </div>
           </div>
-          <div className="footer__copyright">
-            Copyright &copy; 2026 Movie Library
-          </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   )
 }
