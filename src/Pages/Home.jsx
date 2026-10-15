@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../index.css";
 import Movie_Logo from "../assets/movie_reel_logo.jpg";
-import Movie_Img from "../assets/movie_logo.jpg";
+import Movie_Time from "../assets/popcorn_movie_time.svg"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 // http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726//
 // http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726&plot=full
@@ -22,9 +24,9 @@ import Movie_Img from "../assets/movie_logo.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
-  const keyword = "";
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   async function searchMovies(keyword) {
     setLoading(true);
@@ -67,15 +69,22 @@ const Home = () => {
       </nav>
 
       <header className="header__container">
+        <h2 className="movies__search--title">
+          Find Your Favorite <span className="blue">Movies</span> Here!
+        </h2>
         <div className="movies__search">
-          <h2 className="movies__search--title">
-            Find Your Favorite <span className="blue">Movies</span> Here!
-          </h2>
           <input
             type="text"
             className="movie__search--input"
             placeholder="Search by Keyword"
+            onChange={(e) => setKeyword(e.target.value)}
           />
+          <button className="movie__search--btn">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
+        </div>
+        <div className="header__img">
+          <img src={Movie_Time} alt="" />
         </div>
       </header>
 

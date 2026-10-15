@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Movie_Logo from "../assets/movie_reel_logo.jpg";
 import Movie_Img from "../assets/movie_logo.jpg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 
 // http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726//
@@ -66,17 +68,20 @@ const Search = () => {
         <div className="movies__container">
           <div className="row movie__row">
             <div className="movies__header">
-              <div className="movies__search--list">
-                <h2 className="movies__search--title">
-                  Search By Your Favorite <span className="blue">Movies</span> Here!
-                </h2>
-                <input
-                  type="text"
-                  className="movie__search--input"
-                  placeholder="Search by Keyword"
-                  onChange={(e) => setKeyword(e.target.value)}
-                />
-              </div>
+              <h2 className="movies__search--title">
+                Search By Your Favorite <span className="blue">Movies</span> Here!
+              </h2>
+                <div className="movies__search">
+                  <input
+                    type="text"
+                    className="movie__search--input"
+                    placeholder="Search by Keyword"
+                    onChange={(e) => setKeyword(e.target.value)}
+                  />
+                  <button className="movie__search--btn">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </button>
+                </div>
               <div className="movies__body">
                 <h3 className="section__title">Movie Results:</h3>
                 <select className="movies__sort" id="filter" onChange="filterMovies(event)">
@@ -87,9 +92,6 @@ const Search = () => {
                   <option value="OLD_NEW">Oldest to Newest</option>
                 </select>
               </div>
-            </div>
-            <div className="movies movies__loading">
-              <i className="fas fa-spinner movies__loading--spinner"></i>
             </div>
             <div className="movie__container">
               {loading ? (
