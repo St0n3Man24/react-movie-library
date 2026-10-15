@@ -25,17 +25,11 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const Home = () => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [keyword, setKeyword] = useState("");
 
   async function searchMovies(keyword) {
-    setLoading(true);
     const { data } = await axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726&s=${keyword}`);
     setMovies(data);
-
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setMovies(data);
-    setLoading(false);
   }
 
   useEffect(() => {

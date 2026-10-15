@@ -29,8 +29,12 @@ const Search = () => {
   const [keyword, setKeyword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function showMovies() {
+  async function showMovies(keyword) {
     const { data } = await axios.get(`http://www.omdbapi.com/?apikey=1c6a2726&s=${keyword}`);
+    setLoading(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    setLoading(false);
     setMovies(data);
   }
 
@@ -54,11 +58,11 @@ const Search = () => {
               </div>
             </li>
             <li className="nav__link">
-              <div
+              <a href="/search"
                 className="nav__link--anchor link__hover-effect"
                 onClick={() => navigate('/search')}>
                   Movies
-              </div>
+              </a>
             </li>
           </ul>
         </div>
