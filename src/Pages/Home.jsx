@@ -7,34 +7,21 @@ import Movie_Time from "../assets/popcorn_movie_time.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-// http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726//
-// http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726&plot=full
-
-// API to search for movies by keyword:
-// http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726&s=${keyword}
-
-// API to get movie details on a specific movie (IMDb ID):
-// http://www.omdbapi.com/?apikey=1c6a2726&i=${imdbID}
-
-// API to get full plot details of a specific movie (IMDb ID):
-// https://www.omdbapi.com/?apikey=1c6a2726&i=${imdbID}&plot=full
-
-// tt0232500 (Fast & Furious)
-// tt1201607 (Harry Potter)
-
 const Home = () => {
   const navigate = useNavigate();
-  const [movies, setMovies] = useState([]);
-  const [keyword, setKeyword] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  async function searchMovies(keyword) {
-    const { data } = await axios.get(`http://www.omdbapi.com/?i=tt3896198&apikey=1c6a2726&s=${keyword}`);
-    setMovies(data);
+  function handleSearchKeyDown(event) {
+    if (event.key === "Enter" && searchTerm.trim() !== "") {
+      navigate('/search', { state: { keyword: searchTerm.trim()}});
+    }
   }
 
-  useEffect(() => {
-    searchMovies(keyword);
-  }, [])
+  function handleSearchClick() {
+    if (searchTerm.trim() !== "") {
+      navigate('/search', { state: { keyword: searchTerm.trim()}});
+    }
+  }
 
   return (
     <div>
@@ -72,9 +59,14 @@ const Home = () => {
               type="text"
               className="movie__search--input"
               placeholder="Search by Keyword"
-              onChange={(e) => setKeyword(e.target.value)}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyPress={(e) => handleSearchKeyDown(e)}
             />
-            <button className="movie__search--btn">
+            <button
+              className="movie__search--btn"
+              onClick={handleSearchClick}
+            >
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>

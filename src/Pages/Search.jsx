@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "../index.css";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Movie_Logo from "../assets/movie_reel_logo.jpg";
-import Movie_Img from "../assets/movie_logo.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -25,10 +24,11 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const Search = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [movies, setMovies] = useState([]);
-  const [keyword, setKeyword] = useState('');
+  const [keyword, setKeyword] = useState(location.state?.keyword || '');
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(location.state?.keyword || '');
   const [filter, setFilter] = useState('');
 
   async function showMovies() {
