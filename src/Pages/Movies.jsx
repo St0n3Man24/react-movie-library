@@ -17,7 +17,7 @@ const Movies = () => {
   }, []);
 
   return (
-    <>
+    <div className="page">
       <div id="nav">
         <div className="nav__container">
             <a href="/">
@@ -122,7 +122,7 @@ const Movies = () => {
           </div>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

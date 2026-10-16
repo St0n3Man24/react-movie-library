@@ -75,7 +75,7 @@ const Search = () => {
   }, [keyword]);
 
   return (
-    <div>
+    <div className="page">
       <div id="nav">
         <div className="nav__container">
             <a href="/">
