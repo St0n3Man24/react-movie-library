@@ -110,7 +110,7 @@ h3 {
   margin: 32px 0;
 }
 
-/* MOVIES */
+/* SEARCH MOVIES */
 
 .movies {
   width: 100%;
@@ -119,10 +119,11 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .movies__container {
-  min-height: 1200px;
+  height: 100vh;
   width: 100%;
   padding: 0 48px;
   margin: 24px 0;
@@ -237,11 +238,6 @@ h3 {
   }
 }
 
-.movies {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .movie {
   width: 25%;
   padding: 12px;
@@ -274,6 +270,15 @@ h3 {
   scale: 0.9;
 }
 
+.movie__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  object-fit: center;
+  object-position: center;
+}
+
 .movie__img--skeleton {
   width: 100%;
   max-width: 250px;
@@ -282,15 +287,6 @@ h3 {
   overflow: hidden;
   margin-bottom: 8px;
   background-color: lightgrey;
-}
-
-.movie__img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  object-fit: center;
-  object-position: center;
 }
 
 .movie__description {
@@ -324,6 +320,156 @@ h3 {
   width: 100%;
   max-width: 95px;
   height: 20px;
+  background-color: lightgrey;
+}
+
+/* MOVIES */
+
+#movies {
+  height: 100vh;
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.target__movie__container {
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.target__movie {
+  width: fit-content;
+  max-width: 100%;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 64px;
+  box-sizing: border-box;
+}
+
+.target__movie__img--wrapper {
+  width: 100%;
+  max-width: 450px;
+  height: 525px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 0 8px 0;
+}
+
+.target__movie__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+}
+
+.target__movie__img--skeleton {
+  width: 100%;
+  max-width: 450px;
+  height: 525px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 0 8px 0;
+  background-color: lightgrey;
+}
+
+.target__movie__description {
+  width: 100%;
+  max-width: 600px;
+  margin-left: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.target__movie__title, .target__movie__year, .target__movie__rating, .target__movie__release, .target__movie__runtime, .target__movie__genre, .target__movie__director, .target__movie__actors, .target__movie__plot {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.target__movie__year, .target__movie__rating, .target__movie__release, .target__movie__runtime, .target__movie__genre, .target__movie__director, .target__movie__actors, .target__movie__plot {
+  border-bottom: 1px solid black;
+}
+
+.target__movie__rating, .target__movie__release, .target__movie__runtime, .target__movie__genre, .target__movie__director, .target__movie__actors, .target__movie__plot {
+  margin-top: 12px;
+}
+
+.target__movie__title {
+  font-size: 20px;
+}
+
+.target__movie__title--skeleton {
+  width: 300px;
+  height: 20px;
+  margin-left: 64px;
+  background-color: lightgrey;
+}
+
+.target__movie__year {
+  margin-top: 6px;
+  display: flex;
+}
+
+.target__movie__plot {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.target__movie__title--skeleton, .target__movie__year--skeleton, .target__movie__rating--skeleton, .target__movie__release--skeleton, .target__movie__runtime--skeleton, .target__movie__genre--skeleton, .target__movie__director--skeleton, .target__movie__actors--skeleton {
+  line-height: 1.5;
+}
+
+.target__movie__year--skeleton, .target__movie__rating--skeleton, .target__movie__release--skeleton, .target__movie__runtime--skeleton, .target__movie__genre--skeleton, .target__movie__director--skeleton, .target__movie__actors--skeleton {
+  height: 20px;
+  margin-top: 12px;
+  margin-left: 64px;
+  background-color: lightgrey;
+}
+
+.target__movie__year--skeleton {
+  width: 124px;
+}
+
+.target__movie__rating--skeleton {
+  width: 72px;
+}
+
+.target__movie__release--skeleton {
+  width: 124px;
+}
+
+.target__movie__runtime--skeleton {
+  width: 88px;
+}
+
+.target__movie__genre--skeleton {
+  width: 232px;
+}
+
+.target__movie__director--skeleton {
+  width: 124px;
+}
+
+.target__movie__actors--skeleton {
+  width: 400px;
+}
+
+.target__movie__plot--skeleton {
+  width: 600px;
+  height: 20px;
+  margin-top: 12px;
+  margin-left: 64px;
   background-color: lightgrey;
 }
 

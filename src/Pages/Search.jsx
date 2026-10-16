@@ -3,6 +3,7 @@ import "../index.css";
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Movie_Logo from "../assets/movie_reel_logo.jpg";
+import Movie_Img from "../assets/movie_logo.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -152,8 +153,16 @@ const Search = () => {
                     <div className="movie" key={movie.imdbID}>
                       <figure className="movie__img--wrapper">
                         <img
+                          onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = Movie_Img;
+                          }}
                           className="movie__img"
-                          src={movie.Poster}
+                          src={
+                            movie.Poster && movie.Poster !== "N/A"
+                              ? movie.Poster
+                              : Movie_Img
+                          }
                           alt=""
                         />
                       </figure>
