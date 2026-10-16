@@ -106,7 +106,7 @@ const Search = () => {
                 </div>
               ) : (
                 <>
-                  {/* {movies.map((movie) => ( */}
+                  {movies.map((movie) => (
                     <div className="movie">
                       <figure className="movie__img--wrapper">
                         <img
@@ -120,7 +120,7 @@ const Search = () => {
                         <h4 className="movie__year">Movie Year</h4>
                       </div>
                     </div>
-                  {/* ))} */}
+                  ))}
                 </>
               )}
             </div>
