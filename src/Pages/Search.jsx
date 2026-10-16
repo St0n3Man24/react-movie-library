@@ -28,18 +28,49 @@ const Search = () => {
   const [movies, setMovies] = useState([]);
   const [keyword, setKeyword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filter, setFilter] = useState('');
 
-  async function showMovies(searchKeyword) {
+  async function showMovies() {
     const { data } = await axios.get(`http://www.omdbapi.com/?apikey=1c6a2726&s=${keyword}`);
     setLoading(true);
 
     await new Promise((resolve) => setTimeout(resolve, 800));
     setLoading(false);
-    setMovies(data);
+    console.log(data.Search);
+    setMovies(data.Search || []);
+  }
+
+  function searchMovies(event) {
+    if (event.key === "Enter") {
+      setKeyword(searchTerm);
+    }
+  }
+
+  function searchMoviesIcon() {
+    if(searchTerm !== "") {
+      setKeyword(searchTerm);
+    }
+  }
+
+  function filterMovies() {
+    const sortedMovies = [...movies];
+    if (filter === "ALPHA_A_Z") {
+      sortedMovies.sort((a, b) => a.Title.localeCompare(b.Title));
+    } else if (filter === "ALPHA_Z_A") {
+      sortedMovies.sort((a, b) => b.Title.localeCompare(a.Title));
+    } else if (filter === "NEW_OLD") {
+      sortedMovies.sort((a, b) => parseInt(b.Year) - parseInt(a.Year));
+    } else if (filter === "OLD_NEW") {
+      sortedMovies.sort((a, b) => parseInt(a.Year) - parseInt(b.Year));
+    }
+    return sortedMovies;
   }
 
   useEffect(() => {
-    showMovies(keyword);
+    if (keyword.trim() !== "") {
+      showMovies();
+    }
   }, [keyword]);
 
   return (
@@ -80,16 +111,25 @@ const Search = () => {
                     type="text"
                     className="movie__search--input"
                     placeholder="Search by Keyword"
-                    onChange={(e) => setKeyword(e.target.value)}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyPress={(e) => searchMovies(e)}
                   />
-                  <button className="movie__search--btn">
+                  <button
+                    className="movie__search--btn" 
+                    onClick={searchMoviesIcon}
+                  >
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                   </button>
                 </div>
               <div className="movies__body">
                 <h3 className="section__title">Movie Results:</h3>
-                <select className="movies__sort" id="filter" onChange="filterMovies(event)">
-                  <option value="" disabled selected>Sort</option>
+                <select
+                  className="movies__sort"
+                  id="filter"
+                  value={filter}
+                  onChange={(e) =>setFilter(e.target.value)}
+                >
+                  <option value="" disabled>Sort</option>
                   <option value="ALPHA_A_Z">Alphabetical A to Z</option>
                   <option value="ALPHA_Z_A">Alphabetical Z to A</option>
                   <option value="NEW_OLD">Newest to Oldest</option>
@@ -99,25 +139,27 @@ const Search = () => {
             </div>
             <div className="movie__container">
               {loading ? (
-                <div className="movie">
-                  <div className="movie__img--skeleton"></div>
-                  <div className="movie__title--skeleton"></div>
-                  <div className="movie__year--skeleton"></div>
-                </div>
+                Array.from({ length: 10 }).map((_, index) => (
+                  <div className="movie" key={index}>
+                    <div className="movie__img--skeleton"></div>
+                    <div className="movie__title--skeleton"></div>
+                    <div className="movie__year--skeleton"></div>
+                  </div>
+                ))
               ) : (
                 <>
-                  {movies.map((movie) => (
-                    <div className="movie">
+                  {filterMovies().map((movie) => (
+                    <div className="movie" key={movie.imdbID}>
                       <figure className="movie__img--wrapper">
                         <img
                           className="movie__img"
-                          src={Movie_Img}
+                          src={movie.Poster}
                           alt=""
                         />
                       </figure>
                       <div className="movie__description">
-                        <h3 className="movie__title">Movie Title</h3>
-                        <h4 className="movie__year">Movie Year</h4>
+                        <h3 className="movie__title">{movie.Title}</h3>
+                        <h4 className="movie__year">{movie.Year}</h4>
                       </div>
                     </div>
                   ))}
@@ -140,11 +182,11 @@ const Search = () => {
                 onClick={() => navigate('/')}>
                   Home
               </div>
-              <div
+              <a href="/search"
                 className="footer__link"
                 onClick={() => navigate('/search')}>
                 Movies
-              </div>
+              </a>
             </div>
             <div className="footer__copyright">
               Copyright &copy; 2026 Movie Library

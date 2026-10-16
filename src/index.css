@@ -267,6 +267,11 @@ h3 {
   overflow: hidden;
   margin-bottom: 8px;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.6);
+  transition: all 200ms ease;
+}
+
+.movie__img--wrapper:active {
+  scale: 0.9;
 }
 
 .movie__img--skeleton {
