@@ -1,12 +1,12 @@
 import React from 'react';
 import "../index.css";
-import Movies_List from '../Components/Movies_List';
+import MoviesList from '../Components/Movies_List';
 
 const Search = () => {
 
   return (
     <div className="page">
-      <Movies_List />
+      <MoviesList />
     </div>
   )
 }
