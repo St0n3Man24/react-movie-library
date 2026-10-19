@@ -123,6 +123,16 @@ h3 {
 
 /* SEARCH MOVIES */
 
+#movies {
+  flex: 1;
+  height: auto;
+  min-height: 1515px;
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .movies {
   width: 100%;
   padding-top: 12px;
@@ -337,10 +347,10 @@ h3 {
 
 /* MOVIES */
 
-#movies {
+#movie {
   flex: 1;
   height: auto;
-  min-height: 0;
+  min-height: 600px;
   margin-top: 48px;
   display: flex;
   justify-content: center;
@@ -368,7 +378,7 @@ h3 {
 
 .target__movie__img--wrapper {
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   height: 525px;
   border-radius: 8px;
   overflow: hidden;
@@ -383,8 +393,7 @@ h3 {
 }
 
 .target__movie__img--skeleton {
-  width: 100%;
-  max-width: 450px;
+  width: 450px;
   height: 525px;
   border-radius: 8px;
   overflow: hidden;
@@ -425,8 +434,7 @@ h3 {
 
 .target__movie__title--skeleton {
   width: 300px;
-  height: 20px;
-  margin-left: 64px;
+  height: 24px;
   background-color: lightgrey;
 }
 
@@ -440,14 +448,9 @@ h3 {
   font-weight: 700;
 }
 
-.target__movie__title--skeleton, .target__movie__year--skeleton, .target__movie__rating--skeleton, .target__movie__release--skeleton, .target__movie__runtime--skeleton, .target__movie__genre--skeleton, .target__movie__director--skeleton, .target__movie__actors--skeleton {
-  line-height: 1.5;
-}
-
 .target__movie__year--skeleton, .target__movie__rating--skeleton, .target__movie__release--skeleton, .target__movie__runtime--skeleton, .target__movie__genre--skeleton, .target__movie__director--skeleton, .target__movie__actors--skeleton {
   height: 20px;
-  margin-top: 12px;
-  margin-left: 64px;
+  margin-top: 18px;
   background-color: lightgrey;
 }
 
@@ -482,8 +485,7 @@ h3 {
 .target__movie__plot--skeleton {
   width: 600px;
   height: 20px;
-  margin-top: 12px;
-  margin-left: 64px;
+  margin-top: 18px;
   background-color: lightgrey;
 }
 
