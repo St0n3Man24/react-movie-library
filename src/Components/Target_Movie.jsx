@@ -8,6 +8,7 @@ const Target_Movie = () => {
   const imdbID = location.state?.imdbID;
   const [loading, setLoading] = useState(false);
   const [movie, setMovie] = useState([]);
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   useEffect(() => {
    if (!imdbID) {
@@ -77,8 +78,11 @@ const Target_Movie = () => {
                   <h4 className="target__movie__genre">{movie.Genre}</h4>
                   <h4 className="target__movie__director">{movie.Director}</h4>
                   <h4 className="target__movie__actors">{movie.Actors}</h4>
-                  <p className="target__movie__plot">
-                    {movie.Plot}
+                  <p 
+                    className="target__movie__plot"
+                    onClick={() => setShowFullDescription(!showFullDescription)}
+                    style={{ cursor: 'pointer' }}>
+                    {movie.Plot ? showFullDescription ? movie.Plot : `${movie.Plot.slice(0, 100)} ...` : ""}
                   </p>
                 </div>
               </div>
