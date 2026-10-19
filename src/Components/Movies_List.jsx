@@ -15,15 +15,21 @@ const Movies_List = () => {
   const [searchTerm, setSearchTerm] = useState(location.state?.keyword || '');
   const [filter, setFilter] = useState('');
 
-  async function showMovies() {
-    const { data } = await axios.get(`http://www.omdbapi.com/?apikey=1c6a2726&s=${keyword}`);
+  useEffect(() => {
+    async function showMovies() {
     setLoading(true);
+    const { data } = await axios.get(`http://www.omdbapi.com/?apikey=1c6a2726&s=${keyword}`);
 
     await new Promise((resolve) => setTimeout(resolve, 800));
     setLoading(false);
     console.log(data.Search);
     setMovies(data.Search || []);
   }
+  
+    if (keyword.trim() !== "") {
+      showMovies();
+    }
+  }, [keyword]);
 
   function searchMovies(event) {
     if (event.key === "Enter") {
@@ -50,12 +56,6 @@ const Movies_List = () => {
     }
     return sortedMovies;
   }
-
-  useEffect(() => {
-    if (keyword.trim() !== "") {
-      showMovies();
-    }
-  }, [keyword]);
 
   return (
     <div>
