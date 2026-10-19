@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../index.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const Target_Movie = () => {
-    const navigate = useNavigate();
   const location = useLocation();
   const imdbID = location.state?.imdbID;
   const [loading, setLoading] = useState(false);
