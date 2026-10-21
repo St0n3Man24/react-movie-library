@@ -18,7 +18,7 @@ const Movies_List = () => {
   useEffect(() => {
     async function showMovies() {
     setLoading(true);
-    const { data } = await axios.get(`http://www.omdbapi.com/?apikey=1c6a2726&s=${keyword}`);
+    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=1c6a2726&s=${keyword}`);
 
     await new Promise((resolve) => setTimeout(resolve, 800));
     setLoading(false);
